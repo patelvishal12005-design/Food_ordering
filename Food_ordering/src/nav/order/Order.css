@@ -1,0 +1,255 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.order-page {
+  padding-top: 10vh;
+  color: white;
+  /* min-height: 100vh; */
+}
+
+.title {
+  text-align: center;
+  margin: 40px 0;
+  font-weight: 800;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* PRODUCTS */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.videoplay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.product-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  padding: 25px;
+  border-radius: 20px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: scale(1.03);
+}
+
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.product-card h4 {
+    margin: 10px 0;
+}
+
+.product-card button {
+  background: #ff4d4d;
+  border: none;
+  padding: 10px 25px;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* CART SECTION */
+.cart-section {
+    background: rgba(0,0,0,0.6);
+    padding: 40px 20px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    max-width: 1000px;
+    margin: 0 auto 60px;
+}
+
+.cart-section h3 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* TABLE */
+.table-box {
+  overflow-x: auto;
+  margin-bottom: 30px;
+}
+
+.cart-table {
+  width: 100%;
+  min-width: 600px;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+}
+
+/* ... existing styles ... */
+
+/* FORM SECTION */
+.order-form {
+    background: rgba(255,255,255,0.1);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.order-form h3 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.order-form input {
+    width: 100%;
+    padding: 12px 20px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255,255,255,0.9);
+}
+
+.order-form button {
+    width: 100%;
+    padding: 15px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .order-page {
+        padding: 60px 15px;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .order-form {
+        padding: 25px;
+    }
+}
+.empty {
+  padding: 30px;
+  color: #aaa;
+}
+
+/* CHECKOUT */
+.checkout {
+  margin-top: 25px;
+  text-align: right;
+}
+
+.cod-btn {
+  background: #28a745;
+  border: none;
+  padding: 12px 25px;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.contact-wrapper {
+  /* background: #f4f4f452; */
+  padding: 60px 20px;
+justify-items: center;
+  text-align: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.title::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: red;
+  display: block;
+  margin: 8px auto 0;
+}
+
+.contact-card {
+  max-width: 800px;
+  margin: auto;
+  background: #e7737396;
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+  text-align: left;
+}
+
+.contact-card h3 {
+  margin-bottom: 20px;
+  width: 100vh;
+}
+
+.form2 {
+  display: flex;
+  /* background-color: aqua; */
+  flex-direction: column;
+}
+
+label {
+  margin: 10px 0 5px;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  border-color: red;
+}
+
+button {
+  margin-top: 20px;
+  background: #e53935;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #c62828;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-card {
+    padding: 20px;
+  }
+
+}

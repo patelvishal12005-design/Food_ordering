@@ -1,0 +1,186 @@
+    .search {
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        padding: 100px 20px; 
+        background-repeat: no-repeat;
+        background-image: url("i.webp"); 
+        box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+.h {
+    color: white;
+    /* font-size: clamp(2rem, 8vw, 5rem); */
+    /* font-weight: 800; */
+    text-align: center;
+    /* width: 100%; */
+    margin: 10vh;
+}
+
+.h:hover {
+    color: #ff4d4d;
+    transition: all 0.3s ease;
+}
+
+.bar {
+    display: flex;
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+header {
+    color: black;
+    font-size: 20px;
+    margin-top: 10vh;
+}
+
+.category {
+    padding: 80px 20px;
+}
+
+.category h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 800;
+}
+
+@media (max-width: 768px) {
+    .h {
+        font-size: 3rem;
+    }
+    .category {
+        padding: 40px 10px;
+    }
+}
+
+    .detail {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .d1, .d2, .d3 {
+        width: 100%;
+        max-width: 300px;
+        overflow: hidden;
+        border-radius: 20px;
+        position: relative;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .d1 img, .d2 img, .d3 img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .d1:hover img, .d2:hover img, .d3:hover img {
+        transform: scale(1.1);
+    }
+
+    .detail h3 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0,0,0,0.6);
+        color: white;
+        margin: 0;
+        padding: 15px;
+        text-align: center;
+        backdrop-filter: blur(5px);
+    }
+
+    /* ----------------------------foods----------------------------- */
+    .food {
+        padding: 80px 20px;
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .video1 {
+           position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    }
+
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(15px);
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        color: white;
+        border: 1px solid rgba(255,255,255,0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+    }
+
+    .product-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+
+    .product-card button {
+        background: #ff4d4d;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: bold;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .search {
+            padding: 60px 20px;
+        }
+
+        .bar {
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .s1, .s2 {
+            border-radius: 25px;
+            width: 100%;
+        }
+
+        .d1 img, .d2 img, .d3 img {
+            height: 300px;
+        }
+
+        .product-grid {
+            grid-template-columns: 1fr;
+        }
+    } 
+
+    @media(max-width:400px){
+        .footer2 {
+            width: 100%;
+        }
+    }
