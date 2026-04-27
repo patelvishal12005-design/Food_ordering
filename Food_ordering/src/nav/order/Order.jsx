@@ -17,7 +17,11 @@ function Order() {
   ]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/foods/")
+    const API_URL = import.meta.env.PROD 
+      ? "https://your-production-api.com/api/foods/" 
+      : "http://localhost:8000/api/foods/";
+
+    fetch(API_URL)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
@@ -85,7 +89,11 @@ function Order() {
     };
 
     try {
-      const response = await fetch("http://localhost:8000/api/order/", {
+      const API_URL = import.meta.env.PROD 
+        ? "https://your-production-api.com/api/order/" 
+        : "http://localhost:8000/api/order/";
+
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -16,7 +16,11 @@ function Foods() {
   ]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/foods/")
+    const API_URL = import.meta.env.PROD 
+      ? "https://your-production-api.com/api/foods/" 
+      : "http://localhost:8000/api/foods/";
+
+    fetch(API_URL)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
