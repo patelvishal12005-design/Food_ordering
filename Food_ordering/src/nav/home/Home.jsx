@@ -3,9 +3,10 @@ import './Home.css'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import { Link } from 'react-router-dom'
-import burgerImg from '/burger.jpg'
-import pizzaImg from '/pizza.jpg'
-import sandwichImg from '/sandwich.jpg'
+const burgerImg = '/burger.jpg'
+const pizzaImg = '/pizza.jpg'
+const sandwichImg = '/sandwich.jpg'
+
 function Home() {
   const [products, setProducts] = useState([
     { id: 1, name: "Burger", price: 120, image: burgerImg },
@@ -31,6 +32,9 @@ function Home() {
     <div className='footer2'>
         <Navbar/>
         {/* <header>fast food</header> */}
+      <video autoPlay loop muted className="bg-video">
+  <source src="https://www.shutterstock.com/shutterstock/videos/3788659263/preview/stock-footage--k-slow-motion-video-of-crispy-chicken-nuggets-dropping-onto-a-flat-surface-perfect-for-fast-food.mp4" type="video/mp4" />
+</video>
       {/* ---------------------------category------------------------------- */}
       <div className="category">
         <h1 className='h'>Explore Foods</h1>

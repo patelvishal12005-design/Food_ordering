@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Order.css";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
-import burgerImg from '/burger.jpg'
-import pizzaImg from '/pizza.jpg'
-import sandwichImg from '/sandwich.jpg'
+const burgerImg = '/burger.jpg'
+const pizzaImg = '/pizza.jpg'
+const sandwichImg = '/sandwich.jpg'
 
 function Order() {
   const [products, setProducts] = useState([
@@ -117,7 +117,9 @@ function Order() {
   return (
     <div className="order-page">
       <Navbar />
-
+<video autoPlay loop muted className="bg-video">
+  <source src="https://www.shutterstock.com/shutterstock/videos/1056189248/preview/stock-footage-pizza-margherita-take-a-slice-of-homemade-pizza-with-long-strings-of-melted-cheese-and-tomatoes.mp4" type="video/mp4" />
+</video>
       <h2 className="title">🍔 Food Menu</h2>
 
       {/* PRODUCTS */}

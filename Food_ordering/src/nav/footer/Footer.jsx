@@ -1,11 +1,12 @@
 import React from 'react'
 import './Footer.css'
 import { Link } from 'react-router-dom'
-import facebookImg from '/facebook-new.png'
-import instagramImg from '/instagram-new.png'
-import twitterImg from '/twitter--v1.png'
-import linkedinImg from '/linkedin-circled--v1.png'
-import youtubeImg from '/youtube-play.png'
+const facebookImg = '/facebook-new.png'
+const instagramImg = '/instagram-new.png'
+const twitterImg = '/twitter--v1.png'
+const linkedinImg = '/linkedin-circled--v1.png'
+const youtubeImg = '/youtube-play.png'
+
 function Footer() {
   return (
     <footer>

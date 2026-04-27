@@ -3,9 +3,10 @@ import './Categories.css'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import { Link } from 'react-router-dom'
-import burgerImg from '/burger.jpg'
-import pizzaImg from '/pizza.jpg'
-import sandwichImg from '/sandwich.jpg'
+const burgerImg = '/burger.jpg'
+const pizzaImg = '/pizza.jpg'
+const sandwichImg = '/sandwich.jpg'
+
 function Categories() {
   const categories = [
     { name: "Pizza", img: pizzaImg },
@@ -19,6 +20,9 @@ function Categories() {
   return (
     <div className="categories-page">
       <Navbar/>
+      <video autoPlay loop muted className="bg-video">
+  <source src="https://www.shutterstock.com/shutterstock/videos/1047971215/preview/stock-footage-an-appetizing-and-tasty-chicken-burger-on-a-mirror-table-a-fire-burns-in-the-background.mp4" type="video/mp4" />
+</video>
        <div className="category-hero">
         <div className="category-content">
           <h1 className='text-white'>Explore Foods</h1>
