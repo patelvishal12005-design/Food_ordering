@@ -6,7 +6,6 @@ import Navbar from '../navbar/Navbar'
 import burgerImg from '/burger.jpg'
 import pizzaImg from '/pizza.jpg'
 import sandwichImg from '/sandwich.jpg'
-import foodsVideo from '/143100-781982612_small.mp4'
 
 function Foods() {
   const [foods, setFoods] = useState([
@@ -31,7 +30,6 @@ function Foods() {
     <div>
       <Navbar/>
       <div className="fudcantenar">
-    <video src={foodsVideo} autoPlay loop muted playsInline className='videoplay'></video>
       </div>
       <input type="search" className='i1'/> 
       <i className="i2 fa-solid fa-magnifying-glass "></i>

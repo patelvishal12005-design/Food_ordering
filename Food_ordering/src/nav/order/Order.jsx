@@ -118,11 +118,6 @@ function Order() {
     <div className="order-page">
       <Navbar />
 
-      {/* VIDEO BACKGROUND */}
-      <video autoPlay loop muted className="videoplay">
-        <source src="/143100-781982612_small.mp4" />
-      </video>
-
       <h2 className="title">🍔 Food Menu</h2>
 
       {/* PRODUCTS */}

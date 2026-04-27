@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 import burgerImg from '/burger.jpg'
 import pizzaImg from '/pizza.jpg'
 import sandwichImg from '/sandwich.jpg'
-import homeVideo from '/307837_medium.mp4'
 function Home() {
   const [products, setProducts] = useState([
     { id: 1, name: "Burger", price: 120, image: burgerImg },
@@ -30,9 +29,7 @@ function Home() {
 
   return (
     <div className='footer2'>
-      {/* <img src="i.webp"/> */}
         <Navbar/>
-          <video src={homeVideo} autoPlay loop muted playsInline className='video1'></video>
         {/* <header>fast food</header> */}
       {/* ---------------------------category------------------------------- */}
       <div className="category">
