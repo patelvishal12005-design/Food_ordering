@@ -3,13 +3,17 @@ import Card from './Card'
 import './Foods.css'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
+import burgerImg from '/burger.jpg'
+import pizzaImg from '/pizza.jpg'
+import sandwichImg from '/sandwich.jpg'
+import foodsVideo from '/143100-781982612_small.mp4'
 
 function Foods() {
   const [foods, setFoods] = useState([
-    { id: 1, name: "Pizza", price: 180, image: "/pizza.jpg", description: "Delicious cheesy pizza with fresh toppings." },
-    { id: 2, name: "Burger", price: 120, image: "/burger.jpg", description: "Juicy grilled burger with extra cheese." },
-    { id: 3, name: "Sandwich", price: 90, image: "/sandwich.jpg", description: "Healthy veg sandwich with fresh veggies." },
-    { id: 4, name: "Special Pizza", price: 250, image: "/pizza.jpg", description: "Premium pizza with extra toppings and crust." },
+    { id: 1, name: "Pizza", price: 180, image: pizzaImg, description: "Delicious cheesy pizza with fresh toppings." },
+    { id: 2, name: "Burger", price: 120, image: burgerImg, description: "Juicy grilled burger with extra cheese." },
+    { id: 3, name: "Sandwich", price: 90, image: sandwichImg, description: "Healthy veg sandwich with fresh veggies." },
+    { id: 4, name: "Special Pizza", price: 250, image: pizzaImg, description: "Premium pizza with extra toppings and crust." },
   ]);
 
   useEffect(() => {
@@ -27,9 +31,7 @@ function Foods() {
     <div>
       <Navbar/>
       <div className="fudcantenar">
-    <video autoPlay loop muted playsInline className='videoplay'>
-      <source src="/143100-781982612_small.mp4"></source> 
-    </video>
+    <video src={foodsVideo} autoPlay loop muted playsInline className='videoplay'></video>
       </div>
       <input type="search" className='i1'/> 
       <i className="i2 fa-solid fa-magnifying-glass "></i>

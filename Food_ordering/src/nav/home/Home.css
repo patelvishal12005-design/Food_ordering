@@ -4,7 +4,7 @@
         background-position: center;
         padding: 100px 20px; 
         background-repeat: no-repeat;
-        background-image: url("i.webp"); 
+        background-image: url("/i.webp"); 
         box-shadow: inset 0 0 100px rgba(0,0,0,0.5);
         display: flex;
         justify-content: center;

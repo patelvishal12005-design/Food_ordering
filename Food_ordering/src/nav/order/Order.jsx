@@ -2,15 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./Order.css";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import burgerImg from '/burger.jpg'
+import pizzaImg from '/pizza.jpg'
+import sandwichImg from '/sandwich.jpg'
 
 function Order() {
   const [products, setProducts] = useState([
-    { id: 1, name: "Burger", price: 120, image: "/burger.jpg" },
-    { id: 2, name: "Pizza", price: 180, image: "/pizza.jpg" },
-    { id: 3, name: "Sandwich", price: 90, image: "/sandwich.jpg" },
-    { id: 4, name: "Special Burger", price: 150, image: "/burger.jpg" },
-    { id: 5, name: "Large Pizza", price: 250, image: "/pizza.jpg" },
-    { id: 6, name: "Veg Sandwich", price: 110, image: "/sandwich.jpg" },
+    { id: 1, name: "Burger", price: 120, image: burgerImg },
+    { id: 2, name: "Pizza", price: 180, image: pizzaImg },
+    { id: 3, name: "Sandwich", price: 90, image: sandwichImg },
+    { id: 4, name: "Special Burger", price: 150, image: burgerImg },
+    { id: 5, name: "Large Pizza", price: 250, image: pizzaImg },
+    { id: 6, name: "Veg Sandwich", price: 110, image: sandwichImg },
   ]);
 
   useEffect(() => {

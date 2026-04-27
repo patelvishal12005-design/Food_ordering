@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import './Home.css'
-// import './Order.jsx'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import { Link } from 'react-router-dom'
+import burgerImg from '/burger.jpg'
+import pizzaImg from '/pizza.jpg'
+import sandwichImg from '/sandwich.jpg'
+import homeVideo from '/307837_medium.mp4'
 function Home() {
   const [products, setProducts] = useState([
-    { id: 1, name: "Burger", price: 120, image: "/burger.jpg" },
-    { id: 2, name: "Pizza", price: 180, image: "/pizza.jpg" },
-    { id: 3, name: "Sandwich", price: 90, image: "/sandwich.jpg" },
-    { id: 4, name: "Special Burger", price: 150, image: "/burger.jpg" },
-    { id: 5, name: "Large Pizza", price: 250, image: "/pizza.jpg" },
-    { id: 6, name: "Veg Sandwich", price: 110, image: "/sandwich.jpg" },
+    { id: 1, name: "Burger", price: 120, image: burgerImg },
+    { id: 2, name: "Pizza", price: 180, image: pizzaImg },
+    { id: 3, name: "Sandwich", price: 90, image: sandwichImg },
+    { id: 4, name: "Special Burger", price: 150, image: burgerImg },
+    { id: 5, name: "Large Pizza", price: 250, image: pizzaImg },
+    { id: 6, name: "Veg Sandwich", price: 110, image: sandwichImg },
   ]);
 
   useEffect(() => {
@@ -29,8 +32,7 @@ function Home() {
     <div className='footer2'>
       {/* <img src="i.webp"/> */}
         <Navbar/>
-          <video autoPlay loop muted playsInline className='video1'>
-          <source src="/307837_medium.mp4"></source></video>
+          <video src={homeVideo} autoPlay loop muted playsInline className='video1'></video>
         {/* <header>fast food</header> */}
       {/* ---------------------------category------------------------------- */}
       <div className="category">
@@ -39,19 +41,19 @@ function Home() {
         <div className="detail">
           <Link to="/Order" >
           <div className="d1">
-           <img src="/pizza.jpg" alt="pizza" />
+           <img src={pizzaImg} alt="pizza" />
            <h3>pizza</h3>
           </div>
           </Link>
           <Link to="/Order" >
           <div className="d2">
-   <img src="/sandwich.jpg" alt="sandwich" />
+   <img src={sandwichImg} alt="sandwich" />
            <h3>sandwich</h3>
           </div>
           </Link>
           <Link to="/Order" >
           <div className="d3">
-   <img src="/burger.jpg" alt="burger" />
+   <img src={burgerImg} alt="burger" />
            <h3>burger</h3>
           </div>
           </Link>

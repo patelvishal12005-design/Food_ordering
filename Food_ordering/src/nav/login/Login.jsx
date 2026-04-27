@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 import './Login.css'
+import loginVideo from '/5278-182817488_small.mp4'
 export default function LoginPage() {
   const [form, setForm] = useState({
     email: "",
@@ -28,8 +29,7 @@ export default function LoginPage() {
 
   return (
     <div>
-      <video autoPlay loop muted playsInline className='video1'>
-        <source src="/5278-182817488_small.mp4"></source></video>
+      <video src={loginVideo} autoPlay loop muted playsInline className='video1'></video>
       <div className="cantenar min-h-screen flex items-center justify-center bg-gray-100 p-4">
         <Navbar />
         <div className="login w-full max-w-md shadow-xl rounded-2xl p-8">

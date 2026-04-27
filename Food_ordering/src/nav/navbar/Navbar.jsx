@@ -1,13 +1,14 @@
 import React from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
+import logo1Img from '/logo1.png'
 
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg">
       <div className="container">
         <Link className="navbar-brand" to="/">
-          <img src="/logo1.png" alt="logo"/>
+          <img src={logo1Img} alt="logo"/>
         </Link>
 
         <button

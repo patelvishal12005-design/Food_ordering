@@ -1,6 +1,11 @@
 import React from 'react'
 import './Footer.css'
 import { Link } from 'react-router-dom'
+import facebookImg from '/facebook-new.png'
+import instagramImg from '/instagram-new.png'
+import twitterImg from '/twitter--v1.png'
+import linkedinImg from '/linkedin-circled--v1.png'
+import youtubeImg from '/youtube-play.png'
 function Footer() {
   return (
     <footer>
@@ -21,11 +26,11 @@ function Footer() {
           <div className="footer-section">
             <h4>Follow Us</h4>
             <div className="social-links">
-              <img src="/facebook-new.png" alt="facebook"/>
-              <img src="/instagram-new.png" alt="instagram"/>
-              <img src="/twitter--v1.png" alt="twitter"/>
-              <img src="/linkedin-circled--v1.png" alt="linkedin"/>
-              <img src="/youtube-play.png" alt="youtube"/>
+              <img src={facebookImg} alt="facebook"/>
+              <img src={instagramImg} alt="instagram"/>
+              <img src={twitterImg} alt="twitter"/>
+              <img src={linkedinImg} alt="linkedin"/>
+              <img src={youtubeImg} alt="youtube"/>
             </div>
           </div>
         </div>
