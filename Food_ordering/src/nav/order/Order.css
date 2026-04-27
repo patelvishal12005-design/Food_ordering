@@ -248,7 +248,33 @@ button:hover {
 
 /* Responsive */
 @media (max-width: 600px) {
-  .contact-card {
+}
+
+/* DEMO HISTORY */
+.demo-history {
+    margin-top: 50px;
+    border: 1px dashed rgba(255,255,255,0.3);
+}
+
+.demo-note {
+    text-align: center;
+    color: #ffcc00;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.clear-btn {
+    display: block;
+    margin: 20px auto 0;
+    background: #555;
+    padding: 8px 15px;
+    font-size: 0.8rem;
+}
+
+.clear-btn:hover {
+    background: #333;
+}  .contact-card {
     padding: 20px;
   }
 

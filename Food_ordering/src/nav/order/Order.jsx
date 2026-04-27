@@ -35,6 +35,7 @@ function Order() {
   }, []);
 
   const [cart, setCart] = useState([]);
+  const [demoOrders, setDemoOrders] = useState([]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -42,6 +43,13 @@ function Order() {
     phone: "",
     address: "",
   });
+
+  useEffect(() => {
+    const savedOrders = localStorage.getItem("demoOrders");
+    if (savedOrders) {
+      setDemoOrders(JSON.parse(savedOrders));
+    }
+  }, []);
 
   // ✅ Add to cart
   const addToCart = (product) => {
@@ -93,7 +101,14 @@ function Order() {
 
     try {
       if (import.meta.env.PROD) {
-        alert("⚠️ Note: The backend is not yet hosted. Orders cannot be saved from the live site until the backend is online.");
+        const newDemoOrder = { ...orderData, id: Date.now(), date: new Date().toLocaleString() };
+        const updatedOrders = [newDemoOrder, ...demoOrders];
+        setDemoOrders(updatedOrders);
+        localStorage.setItem("demoOrders", JSON.stringify(updatedOrders));
+        
+        alert("✅ Demo Mode: Order placed successfully! (Saved to browser storage since backend is not hosted yet)");
+        setCart([]);
+        setFormData({ name: "", email: "", phone: "", address: "" });
         return;
       }
 
@@ -218,6 +233,38 @@ function Order() {
           </button>
         </form>
       </div>
+
+      {/* DEMO ORDER HISTORY (PROD ONLY) */}
+      {import.meta.env.PROD && demoOrders.length > 0 && (
+        <div className="cart-section demo-history">
+          <h3>📜 Recent Demo Orders</h3>
+          <p className="demo-note">These orders are stored in your browser for demonstration purposes.</p>
+          <div className="table-box">
+            <table className="cart-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Items</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                {demoOrders.slice(0, 5).map((order) => (
+                  <tr key={order.id}>
+                    <td>{order.date}</td>
+                    <td>{order.items.map(i => `${i.name} x${i.quantity}`).join(", ")}</td>
+                    <td>₹{order.total}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <button className="clear-btn" onClick={() => {
+              localStorage.removeItem("demoOrders");
+              setDemoOrders([]);
+            }}>Clear History</button>
+          </div>
+        </div>
+      )}
 
       <Footer />
     </div>
