@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Order.css";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
-const burgerImg = '/burger.jpg'
-const pizzaImg = '/pizza.jpg'
-const sandwichImg = '/sandwich.jpg'
+const burgerImg = 'burger.jpg'
+const pizzaImg = 'pizza.jpg'
+const sandwichImg = 'sandwich.jpg'
 
 function Order() {
   const [products, setProducts] = useState([

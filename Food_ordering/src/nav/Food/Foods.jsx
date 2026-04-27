@@ -3,9 +3,9 @@ import Card from './Card'
 import './Foods.css'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
-import burgerImg from '/burger.jpg'
-import pizzaImg from '/pizza.jpg'
-import sandwichImg from '/sandwich.jpg'
+import burgerImg from 'burger.jpg'
+import pizzaImg from 'pizza.jpg'
+import sandwichImg from 'sandwich.jpg'
 
 function Foods() {
   const [foods, setFoods] = useState([

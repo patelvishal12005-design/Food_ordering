@@ -3,9 +3,9 @@ import './Home.css'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
 import { Link } from 'react-router-dom'
-const burgerImg = '/burger.jpg'
-const pizzaImg = '/pizza.jpg'
-const sandwichImg = '/sandwich.jpg'
+const burgerImg = 'burger.jpg'
+const pizzaImg = 'pizza.jpg'
+const sandwichImg = 'sandwich.jpg'
 
 function Home() {
   const [products, setProducts] = useState([

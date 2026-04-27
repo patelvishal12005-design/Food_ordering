@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-const logo1Img = '/logo1.png'
+const logo1Img = 'logo1.png'
 
 function Navbar() {
   return (
