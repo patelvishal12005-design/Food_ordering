@@ -22,9 +22,7 @@ function Footer() {
             <Link to='/Foods'>Menu</Link>
             <Link to='/Order'>Order Now</Link>
             <Link to='/Login'>Login</Link>
-            {import.meta.env.DEV && (
-              <a href="http://localhost:8000/login/" target="_blank" rel="noopener noreferrer">Admin Login</a>
-            )}
+            <a href="http://localhost:8000/admin/" target="_blank" rel="noopener noreferrer">Admin Login</a>
           </div>
           <div className="footer-section">
             <h4>Follow Us</h4>
