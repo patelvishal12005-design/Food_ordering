@@ -16,9 +16,12 @@ function Foods() {
   ]);
 
   useEffect(() => {
-    const API_URL = import.meta.env.PROD 
-      ? "https://your-production-api.com/api/foods/" 
-      : "http://localhost:8000/api/foods/";
+    if (import.meta.env.PROD) {
+      console.log("Running in production: Backend data fetching disabled until backend is hosted.");
+      return;
+    }
+
+    const API_URL = "http://localhost:8000/api/foods/";
 
     fetch(API_URL)
       .then(res => res.json())

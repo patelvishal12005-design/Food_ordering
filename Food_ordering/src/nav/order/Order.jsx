@@ -17,9 +17,12 @@ function Order() {
   ]);
 
   useEffect(() => {
-    const API_URL = import.meta.env.PROD 
-      ? "https://your-production-api.com/api/foods/" 
-      : "http://localhost:8000/api/foods/";
+    if (import.meta.env.PROD) {
+      console.log("Running in production: Backend data fetching disabled until backend is hosted.");
+      return;
+    }
+
+    const API_URL = "http://localhost:8000/api/foods/";
 
     fetch(API_URL)
       .then(res => res.json())
@@ -89,9 +92,12 @@ function Order() {
     };
 
     try {
-      const API_URL = import.meta.env.PROD 
-        ? "https://your-production-api.com/api/order/" 
-        : "http://localhost:8000/api/order/";
+      if (import.meta.env.PROD) {
+        alert("⚠️ Note: The backend is not yet hosted. Orders cannot be saved from the live site until the backend is online.");
+        return;
+      }
+
+      const API_URL = "http://localhost:8000/api/order/";
 
       const response = await fetch(API_URL, {
         method: "POST",
