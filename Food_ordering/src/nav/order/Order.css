@@ -274,8 +274,10 @@ button:hover {
 
 .clear-btn:hover {
     background: #333;
-}  .contact-card {
+}
+
+@media (max-width: 600px) {
+  .contact-card {
     padding: 20px;
   }
-
 }
