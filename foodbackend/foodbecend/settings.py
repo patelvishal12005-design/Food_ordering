@@ -126,10 +126,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-from mongoengine import connect
-mongo_uri = os.environ.get('MONGO_URI', "mongodb://localhost:27017/mongodb")
-connect(host=mongo_uri)
+# CSRF trusted origins for Render
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.onrender.com',
+]
+if RENDER_EXTERNAL_HOSTNAME:
+    CSRF_TRUSTED_ORIGINS.append(f'https://{RENDER_EXTERNAL_HOSTNAME}')
+
+# MongoDB connection (optional - only if MONGO_URI is set)
+try:
+    from mongoengine import connect
+    mongo_uri = os.environ.get('MONGO_URI')
+    if mongo_uri:
+        connect(host=mongo_uri)
+except Exception:
+    pass

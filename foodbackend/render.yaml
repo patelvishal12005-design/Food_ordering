@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: food-ordering-backend
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn foodbecend.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: RENDER
+        value: "true"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DJANGO_SUPERUSER_USERNAME
+        value: admin
+      - key: DJANGO_SUPERUSER_EMAIL
+        value: admin@example.com
+      - key: DJANGO_SUPERUSER_PASSWORD
+        generateValue: true
