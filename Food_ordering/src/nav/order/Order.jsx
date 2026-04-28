@@ -145,7 +145,7 @@ function Order() {
             <img src={p.image} alt={p.name} />
             <h4>{p.name}</h4>
             <p>₹{p.price}</p>
-             <Link to="/Order"> <button>Add to Cart</button></Link>
+            <button onClick={() => addToCart(p)}>Add to Cart</button>
           </div>
         ))}
       </div>
