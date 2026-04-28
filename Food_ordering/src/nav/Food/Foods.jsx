@@ -3,34 +3,37 @@ import Card from './Card'
 import './Foods.css'
 import Footer from '../footer/Footer'
 import Navbar from '../navbar/Navbar'
-import burgerImg from 'burger.jpg'
-import pizzaImg from 'pizza.jpg'
-import sandwichImg from 'sandwich.jpg'
+import staticFoods from '../../foods.json';
+const burgerImg = 'burger.jpg'
+const pizzaImg = 'pizza.jpg'
+const sandwichImg = 'sandwich.jpg'
 
 function Foods() {
-  const [foods, setFoods] = useState([
-    { id: 1, name: "Pizza", price: 180, image: pizzaImg, description: "Delicious cheesy pizza with fresh toppings." },
-    { id: 2, name: "Burger", price: 120, image: burgerImg, description: "Juicy grilled burger with extra cheese." },
-    { id: 3, name: "Sandwich", price: 90, image: sandwichImg, description: "Healthy veg sandwich with fresh veggies." },
-    { id: 4, name: "Special Pizza", price: 250, image: pizzaImg, description: "Premium pizza with extra toppings and crust." },
-  ]);
+  const [foods, setFoods] = useState(
+    staticFoods.map(item => ({
+      ...item,
+      image: item.image?.startsWith('http') ? item.image : (item.image || pizzaImg)
+    }))
+  );
 
   useEffect(() => {
-    if (import.meta.env.PROD) {
-      console.log("Running in production: Backend data fetching disabled until backend is hosted.");
-      return;
-    }
-
     const API_URL = "http://localhost:8000/api/foods/";
 
     fetch(API_URL)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
-          setFoods(data);
+          // Map images to handle potential URL differences or missing images
+          const formattedData = data.map(item => ({
+            ...item,
+            image: item.image?.startsWith('http') ? item.image : (item.image || pizzaImg)
+          }));
+          setFoods(formattedData);
         }
       })
-      .catch(err => console.error("Error fetching foods:", err));
+      .catch(err => {
+        console.log("Using static synced data as backend is not reachable.");
+      });
   }, []);
 
   return (

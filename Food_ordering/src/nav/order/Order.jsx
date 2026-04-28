@@ -2,36 +2,36 @@ import React, { useState, useEffect } from "react";
 import "./Order.css";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import staticFoods from '../../foods.json';
 const burgerImg = 'burger.jpg'
 const pizzaImg = 'pizza.jpg'
 const sandwichImg = 'sandwich.jpg'
 
 function Order() {
-  const [products, setProducts] = useState([
-    { id: 1, name: "Burger", price: 120, image: burgerImg },
-    { id: 2, name: "Pizza", price: 180, image: pizzaImg },
-    { id: 3, name: "Sandwich", price: 90, image: sandwichImg },
-    { id: 4, name: "Special Burger", price: 150, image: burgerImg },
-    { id: 5, name: "Large Pizza", price: 250, image: pizzaImg },
-    { id: 6, name: "Veg Sandwich", price: 110, image: sandwichImg },
-  ]);
+  const [products, setProducts] = useState(
+    staticFoods.map(item => ({
+      ...item,
+      image: item.image?.startsWith('http') ? item.image : (item.image || burgerImg)
+    }))
+  );
 
   useEffect(() => {
-    if (import.meta.env.PROD) {
-      console.log("Running in production: Backend data fetching disabled until backend is hosted.");
-      return;
-    }
-
     const API_URL = "http://localhost:8000/api/foods/";
 
     fetch(API_URL)
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) {
-          setProducts(data);
+          const formattedData = data.map(item => ({
+            ...item,
+            image: item.image?.startsWith('http') ? item.image : (item.image || burgerImg)
+          }));
+          setProducts(formattedData);
         }
       })
-      .catch(err => console.error("Error fetching foods:", err));
+      .catch(err => {
+        console.log("Using static synced data as backend is not reachable.");
+      });
   }, []);
 
   const [cart, setCart] = useState([]);
@@ -100,18 +100,6 @@ function Order() {
     };
 
     try {
-      if (import.meta.env.PROD) {
-        const newDemoOrder = { ...orderData, id: Date.now(), date: new Date().toLocaleString() };
-        const updatedOrders = [newDemoOrder, ...demoOrders];
-        setDemoOrders(updatedOrders);
-        localStorage.setItem("demoOrders", JSON.stringify(updatedOrders));
-        
-        alert("✅ Demo Mode: Order placed successfully! (Saved to browser storage since backend is not hosted yet)");
-        setCart([]);
-        setFormData({ name: "", email: "", phone: "", address: "" });
-        return;
-      }
-
       const API_URL = "http://localhost:8000/api/order/";
 
       const response = await fetch(API_URL, {
@@ -149,19 +137,19 @@ function Order() {
 <video autoPlay loop muted className="bg-video">
   <source src="https://www.shutterstock.com/shutterstock/videos/1056189248/preview/stock-footage-pizza-margherita-take-a-slice-of-homemade-pizza-with-long-strings-of-melted-cheese-and-tomatoes.mp4" type="video/mp4" />
 </video>
-      <h2 className="title">🍔 Food Menu</h2>
-
-      {/* PRODUCTS */}
-      <div className="product-grid">
+      <h1 className='h text-center'>food menu</h1>
+      <div className="food menu">
+    <div className="product-grid">
         {products.map((p) => (
           <div className="product-card" key={p.id}>
             <img src={p.image} alt={p.name} />
             <h4>{p.name}</h4>
             <p>₹{p.price}</p>
-            <button onClick={() => addToCart(p)}>Add to Cart</button>
+             <Link to="/Order"> <button>Add to Cart</button></Link>
           </div>
         ))}
       </div>
+        </div>
 
       {/* CART SECTION */}
       <div className="cart-section">

@@ -5,8 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 import json
-from .models import Food
-from .mongo_models import Order
+from .models import Food, Order
 
 # Login View
 def admin_login(request):
