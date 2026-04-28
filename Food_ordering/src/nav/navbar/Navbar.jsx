@@ -32,9 +32,6 @@ function Navbar() {
               <Link className="nav-link" to="/Categories">Categories</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Foods">Food Menu</Link>
-            </li>
-            <li className="nav-item">
               <Link className="nav-link" to="/Order">Order</Link>
             </li>
           </ul>

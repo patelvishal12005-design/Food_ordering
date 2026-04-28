@@ -99,3 +99,14 @@ def delete_food(request, id):
     food = get_object_or_404(Food, id=id)
     food.delete()
     return redirect('food_list')
+
+# Update order status
+@login_required(login_url='admin_login')
+def update_order_status(request, id, status):
+    order = get_object_or_404(Order, id=id)
+    if status == 'select':
+        order.status = 'Selected'
+    elif status == 'not_select':
+        order.status = 'Not Selected'
+    order.save()
+    return redirect('order_list')

@@ -5,7 +5,6 @@ import { HashRouter, Routes, Route } from 'react-router-dom'
 import Home from './nav/home/Home'
 import Order from './nav/order/Order'
 import Categories from './nav/categories/Categories'
-import Foods from './nav/Food/Foods'
 // import Login from './nav/login/Login'
 function App() {
   return (

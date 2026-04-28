@@ -48,7 +48,13 @@
                         </ul>
                     </td>
                     <td>₹{{ order.total_amount }}</td>
-                    <td><span class="badge badge-pending">{{ order.status }}</span></td>
+                    <td>
+                        <span class="badge {% if order.status == 'Selected' %}bg-success text-white{% elif order.status == 'Not Selected' %}bg-danger text-white{% else %}badge-pending{% endif %} mb-2 d-block">{{ order.status }}</span>
+                        <div class="d-flex flex-column gap-1 mt-1">
+                            <a href="{% url 'update_order_status' order.id 'select' %}" class="btn btn-sm btn-outline-success">Select</a>
+                            <a href="{% url 'update_order_status' order.id 'not_select' %}" class="btn btn-sm btn-outline-danger">Not Select</a>
+                        </div>
+                    </td>
                     <td>{{ order.created_at|date:"Y-m-d H:i" }}</td>
                 </tr>
                 {% empty %}
