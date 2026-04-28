@@ -14,9 +14,11 @@ function Order() {
       image: item.image?.startsWith('http') ? item.image : (item.image || burgerImg)
     }))
   );
+  const [loading, setLoading] = useState(true);
+  const [backendOnline, setBackendOnline] = useState(false);
 
   useEffect(() => {
-    const API_URL = "http://localhost:8000/api/foods/";
+    const API_URL = "https://food-backend-dzpd.onrender.com/api/foods/";
 
     fetch(API_URL)
       .then(res => res.json())
@@ -27,10 +29,13 @@ function Order() {
             image: item.image?.startsWith('http') ? item.image : (item.image || burgerImg)
           }));
           setProducts(formattedData);
+          setBackendOnline(true);
         }
+        setLoading(false);
       })
       .catch(err => {
         console.log("Using static synced data as backend is not reachable.");
+        setLoading(false);
       });
   }, []);
 
@@ -100,7 +105,7 @@ function Order() {
     };
 
     try {
-      const API_URL = "http://localhost:8000/api/order/";
+      const API_URL = "https://food-backend-dzpd.onrender.com/api/order/";
 
       const response = await fetch(API_URL, {
         method: "POST",
@@ -138,6 +143,17 @@ function Order() {
   <source src="https://www.shutterstock.com/shutterstock/videos/1056189248/preview/stock-footage-pizza-margherita-take-a-slice-of-homemade-pizza-with-long-strings-of-melted-cheese-and-tomatoes.mp4" type="video/mp4" />
 </video>
       <h1 className='h text-center'>food menu</h1>
+      {loading && (
+        <div style={{ textAlign: 'center', padding: '20px', color: '#fff' }}>
+          <div style={{ fontSize: '2rem', marginBottom: '10px' }}>⏳</div>
+          <p style={{ fontSize: '1rem', opacity: 0.8 }}>Waking up server… please wait a moment ☕</p>
+        </div>
+      )}
+      {!loading && !backendOnline && (
+        <div style={{ textAlign: 'center', padding: '8px', color: '#ffd700', fontSize: '0.85rem' }}>
+          ⚠️ Showing offline menu — live menu unavailable
+        </div>
+      )}
       <div className="food menu">
     <div className="product-grid">
         {products.map((p) => (

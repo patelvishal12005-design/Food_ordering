@@ -17,7 +17,7 @@ function Home() {
   );
 
   useEffect(() => {
-    const API_URL = "http://localhost:8000/api/foods/";
+    const API_URL = "https://food-backend-dzpd.onrender.com/api/foods/";
 
     fetch(API_URL)
       .then(res => res.json())
